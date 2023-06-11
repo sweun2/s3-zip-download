@@ -1,0 +1,14 @@
+aws:
+  s3:
+    bucket: s3testdmstmddn
+cloud:
+  aws:
+    credentials:
+      instance-profile: false
+      access-key: [access-key]
+      secret-key: [secret-key]
+    region:
+      auto: false
+      static: us-east-2
+    stack:
+      auto: false
