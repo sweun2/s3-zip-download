@@ -34,6 +34,11 @@ public class S3Controller {
         headers.add("Content-Disposition", "attachment; filename=" + new String(resource.getFilename().getBytes("UTF-8"), "ISO-8859-1"));
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public String hello(HttpServletRequest request) throws IOException, InterruptedException {
+
+        return "hello";
+    }
 
     private String getPrefix(String uri, String regex) {
         String[] split = uri.split(regex);
