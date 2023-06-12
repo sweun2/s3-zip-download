@@ -31,17 +31,19 @@ public class S3Service {
     private String bucket;
 
     public Resource downloadZip1(String prefix) throws IOException, InterruptedException {
-
+        log.info("Test1");
         // (1)
         // 서버 로컬에 생성되는 디렉토리, 해당 디렉토리에 파일이 다운로드된다
         File localDirectory = new File(RandomStringUtils.randomAlphanumeric(6) + "-s3-download");
         // 서버 로컬에 생성되는 zip 파일
         ZipFile zipFile = new ZipFile(RandomStringUtils.randomAlphanumeric(6) + "-s3-download.zip");
+        log.info("Test2");
         try {
             // (2)
             // TransferManager -> localDirectory에 파일 다운로드
             MultipleFileDownload downloadDirectory = transferManager.downloadDirectory(bucket, prefix, localDirectory);
 
+            log.info("Test3");
             // (3)
             // 다운로드 상태 확인
             log.info("[" + prefix + "] download progressing... start");
