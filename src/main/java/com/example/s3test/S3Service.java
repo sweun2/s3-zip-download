@@ -37,7 +37,9 @@ public class S3Service {
         File localDirectory = new File(RandomStringUtils.randomAlphanumeric(6) + "-s3-download");
         // 서버 로컬에 생성되는 zip 파일
         ZipFile zipFile = new ZipFile(RandomStringUtils.randomAlphanumeric(6) + "-s3-download.zip");
-        log.info("Test2");
+        log.info(transferManager.downloadDirectory(bucket, prefix, localDirectory).getBucketName());
+        log.info(String.valueOf(transferManager.downloadDirectory(bucket, prefix, localDirectory).getState()));
+        log.info(transferManager.downloadDirectory(bucket, prefix, localDirectory).getKeyPrefix());
         try {
             // (2)
             // TransferManager -> localDirectory에 파일 다운로드
